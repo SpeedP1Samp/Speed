@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servidor RP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #282828;
+            color: white;
+            text-align: center;
+            margin-top: 50px; /* Espaço para a barra de status */
+        }
+
+        /* Barra de status no topo */
+        .status-bar {
+            background-color: #FF0000;
+            color: white;
+            padding: 10px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            text-align: center;
+            z-index: 1000; /* Garante que fique acima de outros elementos */
+            font-size: 1rem;
+        }
+
+        .container {
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .ip-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .ip-container span {
+            font-size: 1.5rem;
+        }
+
+        #copy-ip {
+            background-color: #FF0000; /* Cor vermelha */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-left: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #copy-ip:hover, #copy-ip:focus {
+            background-color: #CC0000; /* Vermelho mais escuro para o hover */
+            transform: scale(1.1); /* Aumenta o botão no hover */
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap; /* Permite que as cartas se ajustem em telas menores */
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px;
+            width: 30%;
+            text-align: center;
+            margin: 10px; /* Espaçamento entre as cartas */
+            min-width: 280px; /* Tamanho mínimo das cartas em telas pequenas */
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #FF0000; /* Cor vermelha para os ícones */
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        /* Animação para os ícones */
+        .icon:hover {
+            transform: scale(1.2); /* Aumenta o tamanho dos ícones ao passar o mouse */
+            color: #CC0000; /* Troca para um tom mais escuro de vermelho */
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background-color: #FF0000; /* Cor vermelha */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover, .btn:focus {
+            background-color: #CC0000; /* Vermelho mais escuro para o hover */
+            transform: scale(1.1); /* Aumenta o botão no hover */
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #222;
+        }
+
+        /* Estilo para a animação de nomes */
+        .marquee {
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+            margin: 20px 0;
+        }
+
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 10s linear infinite;
+            color: red; /* Nomes em vermelho */
+            font-size: 2rem;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate(100%, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        /* Ajustes responsivos para telas menores */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .ip-container span {
+                font-size: 1.2rem;
+            }
+
+            .card {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de status no topo -->
+    <div class="status-bar" id="status-bar">
+        Você está conectado: Detectando plataforma...
+    </div>
+
+    <div class="container">
+        <h1>Bem-vindo ao Speed P1</h1>
+        <p>Experimente a melhor jogabilidade em um ambiente De Fuga imersivo.</p>
+        
+        <div class="ip-container">
+            <span>IP do Servidor: <span id="server-ip">207.90.205.54:7761</span></span>
+            <button id="copy-ip">Copiar IP</button>
+        </div>
+
+        <!-- Marquee de nomes -->
+        <div class="marquee">
+            <span>JRMVX &nbsp;&nbsp; KAUAN.MV1 &nbsp;&nbsp; GOIABA P1</span>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <div class="icon">&#128101;</div> <!-- Ícone de família -->
+                <h2>Família</h2>
+                <p>Junte-se a uma família e interaja com outros jogadores.</p>
+                <button class="btn" onclick="familia()">Saiba Mais!</button>
+            </div>
+            <div class="card">
+                <div class="icon">&#128181;</div> <!-- Ícone de VIP -->
+                <h2>Vips</h2>
+                <p>Explore uma variedade de planos VIP para melhorar sua experiência no jogo.</p>
+                <button class="btn" onclick="compreNoDiscord()">Saiba Mais!</button>
+            </div>
+            <div class="card">
+                <div class="icon">&#127918;</div> <!-- Ícone de Discord -->
+                <h2>Discord</h2>
+                <p>Entre no nosso servidor Discord e conecte-se com a comunidade.</p>
+                <button class="btn" onclick="entrarDiscord()">Entrar </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Speed P1. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        // Função para copiar o IP
+        document.getElementById("copy-ip").addEventListener("click", function() {
+            const ip = document.getElementById("server-ip").innerText;
+            navigator.clipboard.writeText(ip).then(function() {
+                alert("IP copiado para a área de transferência!");
+            }, function() {
+                alert("Erro ao copiar o IP.");
+            });
+        });
+
+        // Função para exibir mensagem de "Em breve Famílias"
+        function familia() {
+            alert("Em breve famílias!");
+        }
+
+        // Função para exibir mensagem de "Compre em nosso Discord"
+        function compreNoDiscord() {
+            alert("Compre em nosso Discord!");
+        }
+
+        // Função para abrir o Discord
+        function entrarDiscord() {
+            window.open("https://discord.gg/bYzRn7G2bV");
+        }
+
+        // Função para detectar a plataforma (Mobile ou Desktop)
+        function detectarPlataforma() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            let plataforma = "Desktop";
+
+            if (userAgent.includes("mobi")) {
+                plataforma = "Mobile";
+            }
+
+            document.getElementById("status-bar").innerText = `Você está conectado: ${plataforma}`;
+        }
+
+        // Executa a função ao carregar a página
+        window.onload = detectarPlataforma;
+    </script>
+</body>
+</html>
