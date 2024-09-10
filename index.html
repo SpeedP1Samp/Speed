@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servidor RP</title>
+    <title>SPEED P1</title>
     <style>
         * {
             margin: 0;
@@ -16,7 +16,7 @@
             background-color: #282828;
             color: white;
             text-align: center;
-            margin-top: 50px; /* Espaço para a barra de status */
+            margin-top: 50px; /* EspaÃ§o para a barra de status */
         }
 
         /* Barra de status no topo */
@@ -70,7 +70,7 @@
 
         #copy-ip:hover, #copy-ip:focus {
             background-color: #CC0000; /* Vermelho mais escuro para o hover */
-            transform: scale(1.1); /* Aumenta o botão no hover */
+            transform: scale(1.1); /* Aumenta o botÃ£o no hover */
         }
 
         .cards {
@@ -86,20 +86,20 @@
             padding: 20px;
             width: 30%;
             text-align: center;
-            margin: 10px; /* Espaçamento entre as cartas */
-            min-width: 280px; /* Tamanho mínimo das cartas em telas pequenas */
+            margin: 10px; /* EspaÃ§amento entre as cartas */
+            min-width: 280px; /* Tamanho mÃ­nimo das cartas em telas pequenas */
         }
 
         .icon {
             font-size: 3rem;
             margin-bottom: 10px;
-            color: #FF0000; /* Cor vermelha para os ícones */
+            color: #FF0000; /* Cor vermelha para os Ã­cones */
             transition: transform 0.3s ease, color 0.3s ease;
         }
 
-        /* Animação para os ícones */
+        /* AnimaÃ§Ã£o para os Ã­cones */
         .icon:hover {
-            transform: scale(1.2); /* Aumenta o tamanho dos ícones ao passar o mouse */
+            transform: scale(1.2); /* Aumenta o tamanho dos Ã­cones ao passar o mouse */
             color: #CC0000; /* Troca para um tom mais escuro de vermelho */
         }
 
@@ -120,7 +120,7 @@
 
         .btn:hover, .btn:focus {
             background-color: #CC0000; /* Vermelho mais escuro para o hover */
-            transform: scale(1.1); /* Aumenta o botão no hover */
+            transform: scale(1.1); /* Aumenta o botÃ£o no hover */
         }
 
         footer {
@@ -129,7 +129,7 @@
             background-color: #222;
         }
 
-        /* Estilo para a animação de nomes */
+        /* Estilo para a animaÃ§Ã£o de nomes */
         .marquee {
             width: 100%;
             white-space: nowrap;
@@ -171,7 +171,7 @@
 <body>
     <!-- Barra de status no topo -->
     <div class="status-bar" id="status-bar">
-        Você está conectado: Detectando plataforma...
+        VocÃª estÃ¡ conectado: Detectando plataforma...
     </div>
 
     <div class="container">
@@ -190,19 +190,19 @@
 
         <div class="cards">
             <div class="card">
-                <div class="icon">&#128101;</div> <!-- Ícone de família -->
-                <h2>Família</h2>
-                <p>Junte-se a uma família e interaja com outros jogadores.</p>
+                <div class="icon">&#128101;</div> <!-- Ãcone de famÃ­lia -->
+                <h2>Familia</h2>
+                <p>Junte-se a uma familia e interaja com outros jogadores.</p>
                 <button class="btn" onclick="familia()">Saiba Mais!</button>
             </div>
             <div class="card">
-                <div class="icon">&#128181;</div> <!-- Ícone de VIP -->
+                <div class="icon">&#128181;</div> <!-- Ãcone de VIP -->
                 <h2>Vips</h2>
-                <p>Explore uma variedade de planos VIP para melhorar sua experiência no jogo.</p>
+                <p>Explore uma variedade de planos VIP para melhorar sua experiencia no jogo.</p>
                 <button class="btn" onclick="compreNoDiscord()">Saiba Mais!</button>
             </div>
             <div class="card">
-                <div class="icon">&#127918;</div> <!-- Ícone de Discord -->
+                <div class="icon">&#127918;</div> <!-- Ãcone de Discord -->
                 <h2>Discord</h2>
                 <p>Entre no nosso servidor Discord e conecte-se com a comunidade.</p>
                 <button class="btn" onclick="entrarDiscord()">Entrar </button>
@@ -215,32 +215,32 @@
     </footer>
 
     <script>
-        // Função para copiar o IP
+        // FunÃ§Ã£o para copiar o IP
         document.getElementById("copy-ip").addEventListener("click", function() {
             const ip = document.getElementById("server-ip").innerText;
             navigator.clipboard.writeText(ip).then(function() {
-                alert("IP copiado para a área de transferência!");
+                alert("IP copiado para a Ã¡rea de transferÃªncia!");
             }, function() {
                 alert("Erro ao copiar o IP.");
             });
         });
 
-        // Função para exibir mensagem de "Em breve Famílias"
+        // FunÃ§Ã£o para exibir mensagem de "Em breve FamÃ­lias"
         function familia() {
-            alert("Em breve famílias!");
+            alert("Em breve famÃ­lias!");
         }
 
-        // Função para exibir mensagem de "Compre em nosso Discord"
+        // FunÃ§Ã£o para exibir mensagem de "Compre em nosso Discord"
         function compreNoDiscord() {
             alert("Compre em nosso Discord!");
         }
 
-        // Função para abrir o Discord
+        // FunÃ§Ã£o para abrir o Discord
         function entrarDiscord() {
             window.open("https://discord.gg/bYzRn7G2bV");
         }
 
-        // Função para detectar a plataforma (Mobile ou Desktop)
+        // FunÃ§Ã£o para detectar a plataforma (Mobile ou Desktop)
         function detectarPlataforma() {
             const userAgent = navigator.userAgent.toLowerCase();
             let plataforma = "Desktop";
@@ -249,10 +249,10 @@
                 plataforma = "Mobile";
             }
 
-            document.getElementById("status-bar").innerText = `Você está conectado: ${plataforma}`;
+            document.getElementById("status-bar").innerText = `VocÃª estÃ¡ conectado: ${plataforma}`;
         }
 
-        // Executa a função ao carregar a página
+        // Executa a funÃ§Ã£o ao carregar a pÃ¡gina
         window.onload = detectarPlataforma;
     </script>
 </body>
